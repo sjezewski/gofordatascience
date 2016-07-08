@@ -1,6 +1,8 @@
 
 
 input:
+	pachctl delete-repo filter || true
+	pachctl delete-pipeline filter
 	pachctl delete-repo repodata
 	pachctl create-repo repodata
 	pachctl start-commit repodata > commitID
@@ -10,4 +12,6 @@ input:
 
 run-filter: input
 	cd repofilter && make
+	pachctl create-pipeline -f pipelines/justfilter.json
+
 

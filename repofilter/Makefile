@@ -5,3 +5,4 @@ compile:
 
 docker:
 		docker build --force-rm=true -t sjezewski/repofilter .
+		docker push sjezewski/repofilter
